@@ -10,6 +10,8 @@
 
 <script>
 import Editor from "@/components/Editor.vue";
+import { mapActions } from 'vuex';
+
 export default {
     components:
     {
@@ -28,11 +30,13 @@ export default {
             this.comment.id = Date.now();
             //this.comment.text = this.$refs.editor.editorData
             this.$emit('add', this.comment)
+            this.addCommentToStore(this.comment);
             this.comment = {
                 username: '',
                 text: ''
             }
-        }
+        },
+        ...mapActions('comments', ['addCommentToStore'])
     }
 }
 </script>

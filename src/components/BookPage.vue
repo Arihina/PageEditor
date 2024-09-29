@@ -4,26 +4,31 @@
             <h1>{{ chapter.title }}</h1>
             <div class="content-container">
                 <div v-if="chapter.text" v-for="(paragraph, index) in chapter.text.split('\n\n')" :key="index">
-                    <p>{{ paragraph }}</p>
+                    <p @contextmenu.prevent="openDialog">{{ paragraph }}</p>
                 </div>
             </div>
         </div>
+
+        <custom-dialog :show="showDialog" @update:show="showDialog = $event">
+            <comment-form />
+        </custom-dialog>
+
     </div>
-    <custom-dialog>
-        <comment-form></comment-form>
-    </custom-dialog>
 </template>
 
 
 <script>
 import bookJson from '@/assets/book.json';
-import CustomDialog from './UI/CustomDialog.vue';
 import CommentForm from './CommentForm.vue';
 
 export default {
+    components: {
+        CommentForm
+    },
     data() {
         return {
-            chapter: { title: '', text: '' }
+            chapter: { title: '', text: '' },
+            showDialog: false
         }
     },
     mounted() {
@@ -32,6 +37,9 @@ export default {
     methods: {
         loadChapter() {
             this.chapter = bookJson.chapters[0]
+        },
+        openDialog() {
+            this.showDialog = true;
         }
     }
 }
