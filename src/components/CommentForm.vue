@@ -40,12 +40,25 @@ export default {
             this.comment.id = Date.now();
             //this.comment.text = this.$refs.editor.editorData
             this.addCommentToStore(this.comment);
+
             this.comment = {
                 username: '',
                 text: '',
                 quote: ''
             }
+
             console.log(this.$store.getters['comments/getComments']);
+
+            const randomColor = this.getRandomColor();
+            this.$emit('update-quote-color', randomColor);
+        },
+        getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
         },
         ...mapActions('comments', ['addCommentToStore'])
     }
