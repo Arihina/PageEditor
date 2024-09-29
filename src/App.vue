@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <book-page></book-page>
-    <comment-tools></comment-tools>
+    <comments-bar></comments-bar>
   </div>
 </template>
 
 <script>
 
 import BookPage from '@/components/BookPage.vue';
-import CommentTools from '@/components/CommentTools.vue';
+import CommentsBar from '@/components/CommentsBar.vue';
 
 export default {
   name: 'app',
   components: {
     BookPage,
-    CommentTools
+    CommentsBar
   }
 };
 </script>

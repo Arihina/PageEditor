@@ -11,7 +11,8 @@
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^7.2.0",
     "ckeditor5": "^43.1.1",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",

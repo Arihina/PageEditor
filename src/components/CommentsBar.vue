@@ -1,7 +1,5 @@
 <template>
     <div class="tool-container">
-        <custom-button @click="showDialog">H</custom-button>
-        <comment-form @add="addComment"/>
     </div>
 </template>
 
@@ -14,19 +12,10 @@ export default {
     },
     data() {
         return {
-            dialogVisible: false,
-            comments: []
+            commentPages: []
         }
     },
     methods: {
-        showDialog() {
-            this.dialogVisible = true;
-        },
-        addComment(comment) {
-            this.comments.push(comment);
-            this.dialogVisible = false;
-            console.log(this.comments);
-        }
     }
 }
 </script>

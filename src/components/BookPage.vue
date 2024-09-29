@@ -9,11 +9,16 @@
             </div>
         </div>
     </div>
+    <custom-dialog>
+        <comment-form></comment-form>
+    </custom-dialog>
 </template>
 
 
 <script>
 import bookJson from '@/assets/book.json';
+import CustomDialog from './UI/CustomDialog.vue';
+import CommentForm from './CommentForm.vue';
 
 export default {
     data() {
