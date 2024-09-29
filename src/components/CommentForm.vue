@@ -13,6 +13,12 @@ import Editor from "@/components/Editor.vue";
 import { mapActions } from 'vuex';
 
 export default {
+    props: {
+        selectedText: {
+            type: String,
+            default: ''
+        }
+    },
     components:
     {
         Editor
@@ -21,20 +27,25 @@ export default {
         return {
             comment: {
                 username: '',
-                text: ''
+                text: '',
+                quote: ''
             }
         }
+    },
+    mounted() {
+        this.comment.quote = this.selectedText;
     },
     methods: {
         addComment() {
             this.comment.id = Date.now();
             //this.comment.text = this.$refs.editor.editorData
-            this.$emit('add', this.comment)
             this.addCommentToStore(this.comment);
             this.comment = {
                 username: '',
-                text: ''
+                text: '',
+                quote: ''
             }
+            console.log(this.$store.getters['comments/getComments']);
         },
         ...mapActions('comments', ['addCommentToStore'])
     }

@@ -4,13 +4,13 @@
             <h1>{{ chapter.title }}</h1>
             <div class="content-container">
                 <div v-if="chapter.text" v-for="(paragraph, index) in chapter.text.split('\n\n')" :key="index">
-                    <p @contextmenu.prevent="openDialog">{{ paragraph }}</p>
+                    <p @mouseup="selectText($event)" @contextmenu.prevent="openDialog">{{ paragraph }}</p>
                 </div>
             </div>
         </div>
 
-        <custom-dialog :show="showDialog" @update:show="showDialog = $event">
-            <comment-form />
+        <custom-dialog :show="showDialog" @update:show="showDialog = $event" @clickoutside="showDialog = false">
+            <comment-form :selected-text="selectedText"/>
         </custom-dialog>
 
     </div>
@@ -28,18 +28,22 @@ export default {
     data() {
         return {
             chapter: { title: '', text: '' },
-            showDialog: false
+            showDialog: false,
+            selectedText: ''
         }
     },
     mounted() {
         this.loadChapter()
     },
     methods: {
-        loadChapter() {
-            this.chapter = bookJson.chapters[0]
+        selectText(event) {
+            this.selectedText = window.getSelection().toString();
         },
         openDialog() {
             this.showDialog = true;
+        },
+        loadChapter() {
+            this.chapter = bookJson.chapters[0]
         }
     }
 }
