@@ -58,7 +58,7 @@ export default {
                     const endIndex = startIndex + this.selectedText.length;
                     if (endIndex <= text.length) {
                         const node = paragraph.childNodes[0];
-                        if (node && node.length > 0) { // Проверяем, что узел не пустой
+                        if (node && node.length > 0) {
                             const range = document.createRange();
                             range.setStart(node, startIndex);
                             range.setEnd(node, endIndex);

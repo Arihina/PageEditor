@@ -1,10 +1,9 @@
 <template>
   <div>
     <h2>Comment {{ comment.id }}</h2>
-    <p v-html="comment.text"></p>
-    <p v-if="comment.selectedText">
-      <a :href="`#comment-${comment.id}`">{{ comment.selectedText }}</a>
-    </p>
+    <p>Username: {{ comment.username }}</p>
+    <p>Text: {{ comment.text }}</p>
+    <p>Quote: {{ comment.quote }}</p>
   </div>
 </template>
 

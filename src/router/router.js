@@ -4,7 +4,9 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
     {
         path: '/comment/:id',
-        component: CommentPage
+        name: 'comment-page',
+        component: CommentPage,
+        props: true
     }
 ]
 
