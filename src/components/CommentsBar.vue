@@ -45,7 +45,7 @@ export default {
 
 .horizontal-list-item {
     display: inline-block;
-    margin-right: 10px;
+    margin: 15px;
 }
 
 h2 {

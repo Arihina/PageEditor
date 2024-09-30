@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import store from './store/index.js'
+import store from './store/index.js';
+import router from './router/router';
 import components from '@/components/UI';
 import { CkeditorPlugin } from '@ckeditor/ckeditor5-vue';
 
@@ -10,4 +11,4 @@ components.forEach(component => {
     app.component(component.name, component)
 });
 
-app.use(store).use(CkeditorPlugin).mount('#app');
+app.use(router).use(store).use(CkeditorPlugin).mount('#app');

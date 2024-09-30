@@ -3,10 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
     {
-        path: '/comment/:id',
-        name: 'comment-page',
+        path: '/comments/:id',
+        name: 'comments',
         component: CommentPage,
-        props: true
+        props: (route) => ({ comment: this.$store.getters['comments/getCommentById'](route.params.id) })
     }
 ]
 

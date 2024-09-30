@@ -2,6 +2,7 @@
   <div id="app">
     <book-page></book-page>
     <comments-bar></comments-bar>
+    <router-view></router-view>
   </div>
 </template>
 

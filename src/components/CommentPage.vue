@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'CommentPage',
   props: {
     comment: {
       type: Object,

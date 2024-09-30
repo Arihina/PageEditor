@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/comment/${commentId}`">{{ commentText }}</a>
+  <router-link class="a" :to="`/comments/${commentId}`" target="_blank">{{ commentText }}</router-link>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
 
 
 <style scoped>
-a {
+.a{
   padding: 10px 15px;
   background: none;
   color: teal;
