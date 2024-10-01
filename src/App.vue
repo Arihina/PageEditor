@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <book-page></book-page>
-    <comments-bar></comments-bar>
-    <discussion-block></discussion-block>
+    <comments-bar @update-discussion="updateDiscussion($event)"></comments-bar>
+    <discussion-block :comment="discussionComment" :quote="quote"></discussion-block>
   </div>
 </template>
 
@@ -18,8 +18,20 @@ export default {
     BookPage,
     CommentsBar,
     DiscussionBlock
+  },
+  data() {
+    return {
+      discussionComment: null,
+      quote: null
+    }
+  },
+  methods: {
+    updateDiscussion(event) {
+      this.discussionComment = event.comment;
+      this.quote = event.quote;
+    }
   }
-};
+}
 </script>
-<style scoped>
-</style>
+
+<style scoped></style>

@@ -4,7 +4,9 @@
         <ul>
             <li class="horizontal-list-item" v-for="[quote, comment] in this.$store.getters['comments/getComments']"
                 :key="comment.id">
-                <custom-link :comment-id="comment.id" :comment-text="quote" />
+                <custom-button :comment-id="comment.id" @click="$emit('update-discussion', {comment: comment, quote: quote})">
+                    {{ quote.length > 30 ? quote.slice(0, 20) + '...' : quote }}
+                </custom-button>
             </li>
         </ul>
     </div>
