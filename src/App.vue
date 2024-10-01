@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <book-page></book-page>
+    <div class="horizontal-list-item">
+      <book-page></book-page>
+      <discussion-block class="comment-item" :comment="discussionComment" :quote="quote"></discussion-block>
+    </div>
+
     <comments-bar @update-discussion="updateDiscussion($event)"></comments-bar>
-    <discussion-block :comment="discussionComment" :quote="quote"></discussion-block>
+
   </div>
 </template>
 
@@ -34,4 +38,13 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.horizontal-list-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-item {
+  margin-top: 130px;
+}
+</style>
