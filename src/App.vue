@@ -2,7 +2,7 @@
   <div id="app">
     <book-page></book-page>
     <comments-bar></comments-bar>
-    <router-view></router-view>
+    <discussion-block></discussion-block>
   </div>
 </template>
 
@@ -10,12 +10,14 @@
 
 import BookPage from '@/components/BookPage.vue';
 import CommentsBar from '@/components/CommentsBar.vue';
+import DiscussionBlock from '@/components/DiscussionBlock.vue';
 
 export default {
   name: 'app',
   components: {
     BookPage,
-    CommentsBar
+    CommentsBar,
+    DiscussionBlock
   }
 };
 </script>

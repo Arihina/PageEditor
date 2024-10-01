@@ -2,9 +2,9 @@
     <h2>Discussion List</h2>
     <div class="tool-container">
         <ul>
-            <li class="horizontal-list-item" v-for="comment in this.$store.getters['comments/getComments']"
+            <li class="horizontal-list-item" v-for="[quote, comment] in this.$store.getters['comments/getComments']"
                 :key="comment.id">
-                <custom-link :comment-id="comment.id" :comment-text="comment.quote" />
+                <custom-link :comment-id="comment.id" :comment-text="quote" />
             </li>
         </ul>
     </div>
@@ -49,8 +49,8 @@ export default {
 }
 
 h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

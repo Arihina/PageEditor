@@ -27,8 +27,7 @@ export default {
         return {
             comment: {
                 username: '',
-                text: '',
-                quote: ''
+                text: ''
             }
         }
     },
@@ -39,12 +38,18 @@ export default {
         addComment() {
             this.comment.id = Date.now();
             //this.comment.text = this.$refs.editor.editorData
-            this.addCommentToStore(this.comment);
+
+            const comment = {
+                id: this.comment.id,
+                username: this.comment.username,
+                text: this.comment.text
+            }
+
+            this.addCommentToStore({ comment, quote: this.selectedText });
 
             this.comment = {
                 username: '',
-                text: '',
-                quote: ''
+                text: ''
             }
 
             console.log(this.$store.getters['comments/getComments']);
